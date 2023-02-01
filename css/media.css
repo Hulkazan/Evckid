@@ -55,6 +55,7 @@
 
   .link-content-left {
     font-size: 24px;
+
   }
 
   .heading-content-left {
@@ -83,9 +84,79 @@
 }
 
 @media (max-width: 1200px) {
-  .list-nav {
-    display: none;
+  .nav-header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    min-width: 250px;
+    z-index: 1000;
+    padding: 107px 0 249px 50px;
+    box-shadow: 0 0 5px #888;
+    background-color: #fff;
+    border-radius: 0px 0px 32px 32px;
+    overflow-y: auto;
+    visibility: hidden;
+    transform: translateX(-120%);
+    transition: visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
   }
+
+  .nav-header .list-nav {
+    flex-direction: column;
+  }
+
+  .nav-header .list__item-header:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 32px;
+  }
+
+  .nav-header .link-nav {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+  }
+
+  .nav-header--active {
+    visibility: visible;
+    transform: none;
+    padding-top: 152px;
+  }
+
+  .burger--active .burger__line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger--active .burger__line:first-child {
+    left: 25%;
+    top: 50%;
+    transform: rotate(45deg);
+    transform-origin: center;
+    transition: transform 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out;
+  }
+
+  .burger--active .burger__line:last-child {
+    bottom: auto;
+    left: 25%;
+    top: 50%;
+    transform: rotate(-45deg);
+    transform-origin: center;
+    transition: transform 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out;
+  }
+
+  .stop-scroll {
+    overflow: hidden;
+  }
+
+  .list--active {
+    position: relative;
+    left: 0;
+    padding-left: 32px;
+  }
+
+
+  /* .list-nav {
+    display: none;
+  } */
 
   .burger {
     position: relative;
@@ -95,6 +166,7 @@
     color: rgba(0, 0, 0, 1);
     background-color: transparent;
     border: none;
+    z-index: 1001;
   }
 
   .burger__line {
@@ -173,11 +245,11 @@
 @media (max-width: 1024px) {
   .container {
     padding-left: 50px;
-    padding-right: 50px;
+    padding-right: 33px;
   }
 
   .container-header {
-    padding: 27px 50px 18px 50px;
+    padding: 27px 14px 18px 50px;
     margin-bottom: 47px;
   }
 
@@ -185,6 +257,18 @@
     width: 150px;
     height: 48px;
   }
+
+  .list--active {
+    position: relative;
+    left: 0;
+    padding-left: 0px;
+  }
+
+  .nav-header--active .list--active:not(:last-child) {
+    margin: 0;
+    margin-bottom: 60px;
+  }
+
 
   .container-banner {
     margin-bottom: 35px;
@@ -259,7 +343,7 @@
   }
 
   .container-details {
-    margin-bottom: 68px;
+    margin-bottom: 80px;
   }
 
   .heading-question {
@@ -276,14 +360,29 @@
     padding-bottom: 40px;
   }
 
+  .heading-details {
+    margin-bottom: 48px;
+  }
+
   .container-qua {
-    margin-bottom: 84px;
+    margin-bottom: 71px;
+  }
+
+  .accordion__top h3 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 32px;
+  }
+
+  .accordion__top {
+    padding-top: 38px;
+    padding-bottom: 27px;
   }
 
   .container-footer {
     padding-top: 33px;
     padding-bottom: 41px;
-    padding-right: 50px;
+    padding-right: 35px;
   }
 
   .block-form {
@@ -322,9 +421,28 @@
 }
 
 @media (max-width: 992px) {
+  .container {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
   .container-header {
-    padding: 12px 50px 18px 50px;
+    padding: 12px 31px 18px 50px;
     margin-bottom: 31px;
+  }
+
+  .container-footer {
+    padding-right: 15px;
+    padding-left: 49px;
+  }
+
+  .form-header--active {
+    width: 320px;
+    padding: 16px 13px 16px 16px;
+  }
+
+  .form-header--active .input-header {
+    width: 72%;
   }
 
   .block-banner {
@@ -418,7 +536,12 @@
   }
 
   .container-details {
-    margin-bottom: 38px;
+    margin-bottom: 48px;
+  }
+
+  .accordion__top {
+    padding-top: 33px;
+    padding-bottom: 28px;
   }
 
   .list-item-pixel {
@@ -439,7 +562,7 @@
   }
 
   .container-qua {
-    margin-bottom: 114px;
+    margin-bottom: 109px;
   }
 
   .container-footer {
@@ -464,10 +587,6 @@
 }
 
 @media (max-width: 642px) {
-  .container-footer {
-    padding-right: 15px;
-    padding-left: 15px;
-  }
 
   .nav-footer {
     margin: auto;
@@ -498,6 +617,24 @@
     border-radius: 0px 0px 16px 16px;
   }
 
+  .nav-header--active {
+    padding: 0;
+    padding-top: 78px;
+    padding-left: 25px;
+    padding-bottom: 101px;
+    border-radius: 0px 0px 16px 16px;
+  }
+
+  .nav-header .link-nav {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .nav-header--active .list--active:not(:last-child) {
+    margin: 0;
+    margin-bottom: 32px;
+  }
+
   .logo-header {
     width: 110px;
     height: 35px;
@@ -506,6 +643,18 @@
   .container {
     padding-left: 15px;
     padding-right: 15px;
+  }
+
+  .form-header--active {
+    right: 0;
+    padding: 16px 15px 21px 15px;
+    border-radius: 0px 0px 24px 24px;
+    z-index: 1002;
+  }
+
+  .input-header::placeholder {
+    font-size: 16px;
+    line-height: 20px;
   }
 
   .block-banner {
@@ -517,6 +666,11 @@
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 308px;
+  }
+
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
   }
 
   .heading-banner {
@@ -593,6 +747,21 @@
     height: 39px;
     border-radius: 8px;
     text-align: center;
+  }
+
+  .btn-block-left:hover {
+    color: #fff;
+    background-color: var(--color-brown);
+  }
+
+  .btn-block-left:focus {
+    color: #fff;
+    background-color: var(--color-brown);
+  }
+
+  .btn-block-left:active {
+    color: #fff;
+    background-color: var(--color-brown-dark);
   }
 
   .block-576 {
@@ -706,6 +875,12 @@
     line-height: 32px;
   }
 
+  .accordion__top h3 {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
   .block-details-left {
     padding-top: 17px;
   }
@@ -723,11 +898,18 @@
   }
 
   .container-details {
-    margin-bottom: 50px;
+    margin-bottom: 59px;
+  }
+
+  .accordion__btn {
+    max-width: 40px;
+    width: 100%;
+    height: 40px;
+    font-size: 32px;
   }
 
   .container-qua {
-    margin-bottom: 60px;
+    margin-bottom: 57px;
   }
 
   .container-footer {
